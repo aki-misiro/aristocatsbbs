@@ -1,0 +1,151 @@
+body {
+   background-color: #dcc0a6;
+}
+ 
+.title {
+   text-align: center;
+   font-size: 34px;
+}
+ 
+.threadWrapper {
+   background-color: #f3eded;
+   padding: 10px;
+   max-width: 1300px;
+   margin: 0 auto;
+   border: 1px solid black;
+   margin-bottom: 20px;
+}
+ 
+.childWrapper {
+   border: 1px solid black;
+   padding: 10px;
+}
+ 
+.threadTitle {
+   display: flex;
+   align-items: center;
+   font-weight: 600;
+   margin-left: 6px;
+   height: 60px;
+}
+@media (max-width: 767px) {
+   .threadTitle {
+      display: block;
+      margin-left: 0;
+   }  
+}
+ 
+.threadTitle h1 {
+   color: red;
+   margin-left: 3px;
+   font-size: 27px;
+}
+@media (max-width: 767px) {
+   .threadTitle h1 {
+      margin: 0;
+   }  
+}
+
+section {
+   padding: 0 10px;
+}
+@media (max-width: 767px) {
+   section {
+      padding: 0;
+   }
+}
+ 
+section .nameArea {
+   display: flex;
+   align-items: center;
+   margin-bottom: -14px;
+}
+@media (max-width: 767px) {
+   section .nameArea {
+      overflow: hidden;
+   }
+}
+
+@media (max-width: 767px) {
+   section .nameArea span {
+      flex: 0 0 auto;
+   }
+   section .nameArea .username {
+      flex: 0 0 auto;
+   }
+   section .nameArea time {
+      flex: 0 0 auto;
+   }
+}
+ 
+section .username {
+   color: green;
+   font-weight: 700;
+}
+ 
+section .comment {
+   margin-top: 0;
+   margin-left: 20px;
+}
+ 
+.formWrapper {
+   padding: 16px;
+   margin-left: 20px;
+}
+@media (max-width: 767px) {
+   .formWrapper {
+      padding: 0;
+      margin-left: 0;
+   }
+}
+
+@media (max-width: 382px) {
+   .formWrapper .createCommentForm {
+      display: grid;
+   } 
+}
+
+@media (max-width: 767px) {
+   .formWrapper .createThreadForm input {
+      width: 97.5%;
+   }
+}
+ 
+.commentTextArea {
+   margin-top: 10px;
+   width: 500px;
+   height: 90px;
+   resize: none;
+}
+@media (max-width: 767px) {
+   .commentTextArea {
+      width: 98%;
+   }  
+}
+ 
+.errorMessage {
+   color: red;
+   margin-left: 70px;
+}
+ 
+ /* 新規スレッド */
+.newThreadWrapper {
+   background-color: #b3eeb3;
+   padding: 10px;
+   max-width: 1300px;
+   margin: 0 auto;
+   border: 1px solid black;
+   margin-bottom: 20px;
+}
+ 
+.newChildThreadWrapper {
+   text-align: center;
+   padding: 10px;
+   border: 1px solid black;
+}
+ 
+.newChildThreadWrapper button a {
+   width: 150px;
+   color: black;
+   text-decoration: none;
+}
