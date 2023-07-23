@@ -8,7 +8,7 @@ $result = UserLogic::checkLogin();
 
 if (!$result) {
    $_SESSION['login_err'] = 'ログインしてください。';
-   header('Location: login_form.php');
+   header('Location: ../index.php');
    return;
 }
 
@@ -21,10 +21,14 @@ $login_user = $_SESSION['login_user'];
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>猫のつれづれ掲示板</title>
+   <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
-<p>ログインユーザー：<?php echo h($login_user['name']) ?></p>
-<a href="https://aristocats.xsrv.jp/">掲示板へ</a>
-<a href="./login.php">ログアウト</a>
+   <p>ログインユーザー：<?php echo h($login_user['name']) ?></p>
+   <?php include("../app/parts/header.php"); ?>
+   <?php include("../app/parts/validation.php"); ?>
+   <?php include("../app/parts/thread.php") ; ?>
+   <?php include("../app/parts/newThreadButton.php") ; ?>
+   <a href="../index.php">ログアウト</a>
 </body>
 </html>

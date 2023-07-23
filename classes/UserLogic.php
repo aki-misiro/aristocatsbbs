@@ -1,36 +1,9 @@
 <?php
 
-require_once '../dbconnect.php';
+require_once '../app/database/connect.php';
 
 class UserLogic
 {
-   /**
-    * ユーザーを登録する
-    * @param array $userData
-    * @return bool $result
-    */
-   public static function createUser($userData)
-   {
-      $result = false;
-
-      $sql = 'INSERT INTO users (name, email, password) VALUES (?, ?, ?)';
-
-      // ユーザーデータを配列に入れる
-      $arr = [];
-      $arr[] = $userData['username'];
-      $arr[] = $userData['email'];
-      $arr[] = password_hash($userData['password'], PASSWORD_DEFAULT);
-
-      try {
-         $stmt = connect()->prepare($sql);
-         $result = $stmt->execute($arr);
-   
-         return $result;
-      } catch(\Exception $e) {
-         return $result;
-      }
-   }
-
    /**
     * ログイン処理
     * @param string $email
@@ -72,7 +45,7 @@ class UserLogic
       // SQLの準備
       // SQLの実行
       // SQLの結果を返す
-      $sql = 'SELECT * FROM users WHERE email = ?';
+      $sql = 'SELECT * FROM user WHERE email = ?';
 
       // emailを配列に入れる
       $arr = [];
