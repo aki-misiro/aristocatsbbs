@@ -25,12 +25,12 @@ $login_user = $_SESSION['login_user'];
 </head>
 <body>
    <p>ログインユーザー：<?php echo h($login_user['name']) ?></p>
+   <form action="logout.php" method="POST">
+      <input type="submit" name="logout" value="ログアウト">
+   </form>
    <?php include("../app/parts/header.php"); ?>
    <?php include("../app/parts/validation.php"); ?>
    <?php include("../app/parts/thread.php") ; ?>
    <?php include("../app/parts/newThreadButton.php") ; ?>
-   <form action="logout.php" method="POST">
-      <input type="submit" name="logout" value="ログアウト">
-   </form>
 </body>
 </html>

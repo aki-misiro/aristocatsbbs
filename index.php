@@ -25,10 +25,10 @@ session_destroy();
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ログイン画面</title>
+  <title>掲示板ログイン画面</title>
 </head>
 <body>
-   <h2>ログインフォーム</h2>
+   <h2>掲示板ログインフォーム</h2>
    <?php if (isset($login_err)) : ?>
       <p><?php echo $login_err; ?></p>
    <?php endif; ?>

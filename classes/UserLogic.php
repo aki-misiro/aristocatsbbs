@@ -18,7 +18,7 @@ class UserLogic
       $user = self::getUserByEmail($email);
 
       if (!$user) {
-         $_SESSION['msg'] = 'emailが一致しません。';
+         $_SESSION['msg'] = 'メールアドレスが一致しません。';
          return $result;
       }
 
