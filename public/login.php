@@ -39,6 +39,6 @@ if (!$result) {
 <body>
    <h2>ログイン完了</h2>
    <p>ログインしました。</p>
-   <a href="./mypage.php">マイページへ</a>
+   <a href="./mypage.php">掲示板へ</a>
 </body>
 </html>

@@ -25,11 +25,11 @@ if (isset($_POST["submitButton"])) {
       $post_date = date("Y-m-d H:i:s");
 
       // トランザクション開始
-      $pdo->beginTransaction();
+      connect()->beginTransaction();
 
       try {
          $sql = "INSERT INTO `comment` (`username`, `body`, `post_date`, `thread_id`) VALUES (:username, :body, :post_date, :thread_id);";
-         $statement = $pdo->prepare($sql);
+         $statement = connect()->prepare($sql);
       
          // 値をセットする。
          $statement->bindParam(":username", $escaped["username"], PDO::PARAM_STR);
@@ -40,7 +40,7 @@ if (isset($_POST["submitButton"])) {
          $statement->execute();
          
          // 同じページにリダイレクトし、リクエスト（フォームの送信）の再実行を防ぐ。
-         header('Location: ./');
+         header('Location: ../public/mypage.php');
 
          $pdo->commit();
       } catch (Exception $error) {
