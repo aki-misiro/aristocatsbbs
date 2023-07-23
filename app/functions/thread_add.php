@@ -1,8 +1,9 @@
 <?php
+require_once '../database/connect.php';
+
 $error_message = array();
 
 if (isset($_POST["threadSubmitButton"])) {
-
    // スレッド名入力チェック
    if (empty($_POST["title"])) {
       $error_message["title"] = "スレッド名を入力してください。";
@@ -31,12 +32,12 @@ if (isset($_POST["threadSubmitButton"])) {
       $post_date = date("Y-m-d H:i:s");
       
       // トランザクション開始
-      $pdo->beginTransaction();
+      // connect()->beginTransaction();
 
       try {
          // スレッドを追加
          $sql = "INSERT INTO `thread` (`title`) VALUES (:title);";
-         $statement = $pdo->prepare($sql);
+         $statement = connect()->prepare($sql);
 
          // 値をセットする。
          $statement->bindParam(":title", $escaped["title"], PDO::PARAM_STR);
@@ -45,7 +46,7 @@ if (isset($_POST["threadSubmitButton"])) {
 
          // コメントも追加
          $sql = "INSERT INTO comment (username, body, post_date, thread_id) VALUES (:username, :body, :post_date, (SELECT id FROM thread WHERE title = :title))";
-         $statement = $pdo->prepare($sql);
+         $statement = connect()->prepare($sql);
 
          // 値をセットする。
          $statement->bindParam(":username", $escaped["username"], PDO::PARAM_STR);
@@ -55,13 +56,13 @@ if (isset($_POST["threadSubmitButton"])) {
 
          $statement->execute();
 
-         $pdo->commit();
+         // connect()->commit();
       } catch (Exception $error) {
-         $pdo->rollBack();
+         // connect()->rollBack();
       }
    }
 
    // 掲示板ページに遷移する
-   header("Location: https://misiro.site/");
+   header("Location: ../../public/mypage.php");
 }
 ?>

@@ -42,9 +42,9 @@ if (isset($_POST["submitButton"])) {
          // 同じページにリダイレクトし、リクエスト（フォームの送信）の再実行を防ぐ。
          header('Location: ../public/mypage.php');
 
-         $pdo->commit();
+         connect()->commit();
       } catch (Exception $error) {
-         $pdo->rollBack();
+         connect()->rollBack();
       }
    }
 }
