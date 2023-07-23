@@ -1,13 +1,16 @@
 <?php
 session_start();
 
-require_once 'classes/UserLogic.php';
+require_once  __DIR__.'/classes/UserLogic.php';
 
 $result = UserLogic::checkLogin();
 if($result) {
   header('Location: public/mypage.php');
   return;
 }
+
+$login_err = isset($_SESSION['login_err']) ? $_SESSION['login_err'] : null;
+unset($_SESSION['login_err']);
 
 $err = $_SESSION;
 
@@ -26,6 +29,9 @@ session_destroy();
 </head>
 <body>
    <h2>ログインフォーム</h2>
+   <?php if (isset($login_err)) : ?>
+      <p><?php echo $login_err; ?></p>
+   <?php endif; ?>
    <?php if (isset($err['msg'])) : ?>
       <p><?php echo $err['msg']; ?></p>
    <?php endif; ?>

@@ -1,15 +1,22 @@
 <?php
+require_once __DIR__.'/env.php';
 function connect()
 {
-   $user = "aristocats_user";
-   $pass = "sF6588ino";
+   $host = DB_HOST;
+   $db = DB_NAME;
+   $user = DB_USER;
+   $pass = DB_PASS;
 
-   // DBと接続
+   $dsn = "mysql:host=$host;dbname=$db;charset=utf8mb4";
+
    try {
-      $pdo = new PDO('mysql:host=localhost;dbname=aristocats_bbs', $user, $pass);
+      $pdo = new PDO($dsn, $user, $pass, [
+         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+      ]);
       return $pdo;
-   } catch (PDOException $error) {
-      echo $error->getMessage();
+   } catch(PDOException $e) {
+      echo '接続失敗です！' . $e->getMessage();
       exit();
    }
 }

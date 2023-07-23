@@ -1,7 +1,7 @@
 <?php
 session_start();
-require_once '../classes/UserLogic.php';
-require_once '../functions.php';
+require_once __DIR__.'/../classes/UserLogic.php';
+require_once __DIR__.'/../functions.php';
 
 // ログインしているか判定し、していなかったらログイン画面へ返す
 $result = UserLogic::checkLogin();
@@ -29,6 +29,8 @@ $login_user = $_SESSION['login_user'];
    <?php include("../app/parts/validation.php"); ?>
    <?php include("../app/parts/thread.php") ; ?>
    <?php include("../app/parts/newThreadButton.php") ; ?>
-   <a href="../index.php">ログアウト</a>
+   <form action="logout.php" method="POST">
+      <input type="submit" name="logout" value="ログアウト">
+   </form>
 </body>
 </html>
