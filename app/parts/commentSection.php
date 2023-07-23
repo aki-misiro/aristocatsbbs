@@ -1,5 +1,5 @@
 <?php
-include("app/functions/comment_get.php");
+include("../app/functions/comment_get.php");
 ?>
 
 <section>
