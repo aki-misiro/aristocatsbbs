@@ -29,6 +29,6 @@ UserLogic::logout();
 <body>
    <h2>ログアウト完了</h2>
    <p>ログアウトしました。</p>
-   <a href="../index.php">ログイン画面へ</a>
+   <a href="../index.php">掲示板ログイン画面へ</a>
 </body>
 </html>

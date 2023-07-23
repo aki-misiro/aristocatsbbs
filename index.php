@@ -25,10 +25,10 @@ session_destroy();
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ログイン画面</title>
+  <title>掲示板ログイン画面</title>
 </head>
 <body>
-   <h2>ログインフォーム</h2>
+   <h2>掲示板ログインフォーム</h2>
    <?php if (isset($login_err)) : ?>
       <p><?php echo $login_err; ?></p>
    <?php endif; ?>
@@ -36,23 +36,24 @@ session_destroy();
       <p><?php echo $err['msg']; ?></p>
    <?php endif; ?>
   <form action="public/login.php" method="POST">
-  <p>
-   <label for="email">メールアドレス：</label>
-   <input type="email" name="email">
-   <?php if (isset($err['email'])) : ?>
-      <p><?php echo $err['email']; ?></p>
-   <?php endif; ?>
-  </p>
-  <p>
-   <label for="password">パスワード：</label>
-   <input type="password" name="password">
-   <?php if (isset($err['password'])) : ?>
-      <p><?php echo $err['password']; ?></p>
-   <?php endif; ?>
-  </p>
-  <p>
-    <input type="submit" value="ログイン">
-  </p>
+      <p>
+         <label for="email">メールアドレス：</label>
+         <input type="email" name="email">
+         <?php if (isset($err['email'])) : ?>
+            <p><?php echo $err['email']; ?></p>
+         <?php endif; ?>
+      </p>
+      <p>
+         <label for="password">パスワード：</label>
+         <input type="password" name="password">
+         <?php if (isset($err['password'])) : ?>
+            <p><?php echo $err['password']; ?></p>
+         <?php endif; ?>
+      </p>
+      <p>
+         <input type="submit" value="ログイン">
+      </p>
   </form>
+  <a href="https://aristocats.site/">ホームに戻る</a>
 </body>
 </html>
