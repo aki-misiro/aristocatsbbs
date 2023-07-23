@@ -36,23 +36,24 @@ session_destroy();
       <p><?php echo $err['msg']; ?></p>
    <?php endif; ?>
   <form action="public/login.php" method="POST">
-  <p>
-   <label for="email">メールアドレス：</label>
-   <input type="email" name="email">
-   <?php if (isset($err['email'])) : ?>
-      <p><?php echo $err['email']; ?></p>
-   <?php endif; ?>
-  </p>
-  <p>
-   <label for="password">パスワード：</label>
-   <input type="password" name="password">
-   <?php if (isset($err['password'])) : ?>
-      <p><?php echo $err['password']; ?></p>
-   <?php endif; ?>
-  </p>
-  <p>
-    <input type="submit" value="ログイン">
-  </p>
+      <p>
+         <label for="email">メールアドレス：</label>
+         <input type="email" name="email">
+         <?php if (isset($err['email'])) : ?>
+            <p><?php echo $err['email']; ?></p>
+         <?php endif; ?>
+      </p>
+      <p>
+         <label for="password">パスワード：</label>
+         <input type="password" name="password">
+         <?php if (isset($err['password'])) : ?>
+            <p><?php echo $err['password']; ?></p>
+         <?php endif; ?>
+      </p>
+      <p>
+         <input type="submit" value="ログイン">
+      </p>
   </form>
+  <a href="https://aristocats.site/">ホームに戻る</a>
 </body>
 </html>
