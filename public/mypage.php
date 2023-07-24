@@ -25,12 +25,18 @@ $login_user = $_SESSION['login_user'];
 </head>
 <body>
    <p>ログインユーザー：<?php echo h($login_user['name']) ?></p>
-   <form action="logout.php" method="POST">
-      <input type="submit" name="logout" value="ログアウト">
-   </form>
+   <div style="display:flex; justify-content: space-between;">
+      <form action="logout.php" method="POST">
+         <input type="submit" name="logout" value="ログアウト">
+      </form>
+      <a href="#bottom">最下部へ</a>
+   </div>
    <?php include("../app/parts/header.php"); ?>
    <?php include("../app/parts/validation.php"); ?>
    <?php include("../app/parts/thread.php") ; ?>
    <?php include("../app/parts/newThreadButton.php") ; ?>
+   <div style="text-align: right;">
+      <a href="#" name="bottom">ページトップへ</a>
+   </div>
 </body>
 </html>
